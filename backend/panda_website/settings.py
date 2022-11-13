@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'youtube',
+    'instagram',
     'rest_framework',
 ]
 
