@@ -18,8 +18,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include('api.urls')),
+    path('',include('website.urls')),
     path('youtube/',include('youtube.urls')),
     path('instagram/',include('instagram.urls')),
+    path('facebook/',include('facebook.urls')),
 
 ]
