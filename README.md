@@ -10,6 +10,35 @@ Supportted paltforms:
 ### Design File 
 I just made a basic sketch using [Figma](https://www.figma.com/file/dXFR70vW82a2ricO2LIwLJ/Panda-downloader?node-id=0%3A1) to have a better idea of what the finished product would look like.
 
+To run the django project on locally
+* users need to cone the repo
+```
+git clone https://github.com/vishnudas-bluefox/panda_website.git
+```
+* getting inside of the cloned folder
+```
+cd panda_website
+```
+* creating a virtual environment for python dependencies
+[ Notice: The below two commands aren't for windows users]
+```
+python3 -m venv venv
+```
+```
+source venv/bin/activate/
+```
+install all the dependencies
+```
+pip install -r requirements.txt
+```
+run the backend server locally
+```
+cd backend
+```
+```
+python3 manage.py runserver 
+```
+The django project runs locally :)
 Youtube API
 -------------
 ### to fetch the details
