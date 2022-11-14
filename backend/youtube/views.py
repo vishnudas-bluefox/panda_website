@@ -10,12 +10,12 @@ from django.http import JsonResponse
 
 
 # to fetch the datas from youtube
-@api_view(['GET'])
+@api_view(['GET','POST'])
 def fetch(request,*args,**kwargs):
-
+    print(request.body)
     #check the metod of request
-    if request.method != "GET":
-        return Response({"Error":"Get was the only request method available here"})
+    #if request.method != "GET":
+        #return Response({"Error":"Get was the only request method available here"})
     body = json.loads(request.body)
     url =body['url']
 
