@@ -2,4 +2,4 @@ venv/
 backend/youtube/downloads/*
 backend/website/
 backend/.env
-frontend/
+

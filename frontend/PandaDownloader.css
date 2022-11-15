@@ -1,0 +1,125 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+.container {
+    background: #021116;
+    height: 100%;
+}
+#logo{
+    display: flex;
+    justify-content: center;
+    padding-top:20px;
+}
+.navbar{
+    padding-top:50px;
+    display: flex;
+    justify-content: center;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    width:70%;
+}
+.button{ 
+    border: none;
+}
+.active{
+    border:3px solid white;
+}
+.youtube{
+    background:#C21010;
+    width:25%;
+    height:90px;
+    border-radius:30px 0% 0% 30px;
+}
+.facebook{
+    background:#E1306C;
+    width:25%;
+    height:90px;
+}
+.instagram{
+    background:#001253;
+    width:25%;
+    height:90px;
+}
+.twitter{
+    background:#1DA1F2;
+    width:25%;
+    height:90px;
+    border-radius:0 30px 30px 0;
+}
+.search{
+    padding-top:50px;
+    display: flex;
+    justify-content: center;
+}
+input {
+    color: white;
+    height: 50px;
+    width: 50%;
+    padding: 6px 10px;
+    background: #021116;
+    border-radius: 20px;
+    border: 3px solid white;
+    font-size: 20px;
+  }
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.826);
+  }
+  .searchicon{
+    background:transparent;
+    padding-left: 10px;
+  }
+
+
+  .footer {
+    background-image:url(Images/Ellipse.svg);
+    background-repeat: no-repeat;
+    position:fixed;
+    bottom:-70px;
+    background-size:100%;
+    height:30%;
+    width:100%;
+    max-width: 1500px;
+  }
+  #poweredby{
+    padding-top:80px ;
+    padding-left:5%;
+    width:30%;
+    min-width: 500px;
+  }
+  .downloads{
+    padding-top:50px;
+    display: flex;
+    justify-content: center;
+  }
+  .quality{
+    width:60%;
+    max-width:600px;
+    height:80px;
+    background: rgba(85, 95, 99, 0.29);
+    border-radius: 20px;
+    margin-right: 20px;
+  }
+  .download{
+    background:rgba(71, 200, 196, 0.92);
+    width:25%;
+    max-width:300px;
+    height:80px;
+    border-radius: 20px;
+    
+}
+
+  .thumbnail{
+    display: block;
+    border-radius: 30px;
+    border: 1px solid white;
+}
+
+
+  h2 {
+    display: block;
+    color: white;
+    font-weight: 600;
+}
