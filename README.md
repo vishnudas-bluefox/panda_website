@@ -10,6 +10,8 @@ Supportted paltforms:
 ### Design File 
 I just made a basic sketch using [Figma](https://www.figma.com/file/dXFR70vW82a2ricO2LIwLJ/Panda-downloader?node-id=0%3A1) to have a better idea of what the finished product would look like.
 
+The django project runs locally :)
+
 To run the django project on locally
 * users need to cone the repo
 ```
@@ -38,7 +40,7 @@ cd backend
 ```
 python3 manage.py runserver 
 ```
-The django project runs locally :)
+
 Youtube API
 -------------
 ### to fetch the details
@@ -72,3 +74,30 @@ the response data +
  }
  
   requests.get(downloadpoint,json=data)
+
+
+Instagram API
+-------------
+### for download the the posts & reels
+```
+http://localhost:8000/instagram/post_download/
+```
+### for download the profile picture
+```
+http://localhost:8000/instagram/profile_pic/
+```
+Facebook API
+-------------
+### download the post files
+```
+http://localhost:8000/facebook/post/
+```
+
+users can download the images directly from the facebook :)
+
+Twitter API
+-------------
+### download tweet medi files 
+```
+http://localhost:8000/twitter/fetch/
+```
