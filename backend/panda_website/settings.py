@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'instagram',
     'facebook',
     'website',
+    'twitter',
     'rest_framework',
 ]
 

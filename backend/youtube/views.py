@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 import json
+import os
 #importing rest_framework modules
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -12,12 +13,12 @@ from django.http import JsonResponse
 # to fetch the datas from youtube
 @api_view(['GET','POST'])
 def fetch(request,*args,**kwargs):
-    print(request.body)
+    url = request.query_params.get('url')
     #check the metod of request
-    #if request.method != "GET":
-        #return Response({"Error":"Get was the only request method available here"})
-    body = json.loads(request.body)
-    url =body['url']
+    if request.method != "GET":
+        return Response({"Error":"Get was the only request method available here"})
+    #body = json.loads(request.body)
+    #url =body['url']
 
     # was the link playlist or not
     flag = check(url)
@@ -34,10 +35,10 @@ def fetch(request,*args,**kwargs):
 def download(request,*args,**kwargs):
     if request.method != "GET":
         return Response({"Error":"Get was the only request method available here"})
-    data =json.loads(request.body)
-    url=data["url"]
-    resolution=data["resolution"]
-
+    #data =json.loads(request.body)
+    url=request.query_params.get('url')
+    resolution=request.query_params.get('resolution')
+    print("\n\n",url,"\n",resolution)
     yt = YouTube(url)
     try:
         try:
@@ -45,8 +46,17 @@ def download(request,*args,**kwargs):
         except:
             yt.streams.filter(progressive= True).order_by('resolution').desc().first().download("youtube/downloads")
     except:
+        print("error responded")
         return Response({"Error":"Panda is facing some issues to download your file"})
-    return Response({"Message":"Success"})
+    print("message responded")
+    for file in os.listdir("youtube/downloads/"):
+        if file.startswith(yt.title):
+            download_path=os.path.join("youtube/downloads/", file)
+    #download_path = os.path.abspath("youtube/downloads/"+yt.title)
+    data = {}
+    data["location"]=download_path
+    print(data)
+    return Response(data)
 
 
 @api_view(["GET"])

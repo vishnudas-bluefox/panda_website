@@ -22,5 +22,7 @@ urlpatterns = [
     path('youtube/',include('youtube.urls')),
     path('instagram/',include('instagram.urls')),
     path('facebook/',include('facebook.urls')),
+    path('instagram/',include('instagram.urls')),
+    path('twitter/',include('twitter.urls')),
 
 ]
