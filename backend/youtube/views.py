@@ -53,10 +53,10 @@ def download(request,*args,**kwargs):
         if file.startswith(yt.title):
             download_path=os.path.join("youtube/downloads/", file)
     #download_path = os.path.abspath("youtube/downloads/"+yt.title)
-    data = {}
-    data["location"]=download_path
-    print(data)
-    return Response(data)
+    #data = {}
+    #data["location"]=download_path
+    #print(data)
+    return Response({"Message":"Succesfully downloaded"})
 
 
 @api_view(["GET"])

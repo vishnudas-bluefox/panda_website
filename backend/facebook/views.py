@@ -29,8 +29,11 @@ headers = {
 @api_view(['GET'])
 def post_fetch(request,*args,**kwargs):
     #url = request.GET['url']
-    querystring = {"url":"https://www.facebook.com/reel/1187362698778788"}
+
+    url = request.query_params.get('url')
+    querystring = {"url":url}
 
     response = requests.request("GET", rapid_link, headers=headers, params=querystring)
     data = response.json()
+    print(data)
     return Response(data)

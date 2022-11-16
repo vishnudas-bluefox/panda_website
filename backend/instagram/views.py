@@ -14,14 +14,16 @@ import requests
 def fetch_post(request,*args,**kwargs):
 
     print("request successfull")
-    req_body=json.loads(request.body)
-    url = req_body['url']
+    #req_body=json.loads(request.body)
+    url = request.query_params.get('url')
+    print(url)
     post_data = url.split('/')
+    print(post_data)
     post_id=post_data[4]
-    format_link = f"https://api.zenrows.com/v1/?apikey=813dcf383caedb54fe88f33a4686420821113c5f&url=https%3A%2F%2Fwww.instagram.com%2Fp%2F{post_id}%2F%3Futm_source%3Dig_web_copy_link&js_render=true&premium_proxy=true&autoparse=true"
-    print("Intializing request")
+    format_link = f"https://api.zenrows.com/v1/?apikey=4c231f11b73d3297335473dfa6d95be3eeac9b2b&url=https%3A%2F%2Fwww.instagram.com%2Fp%2F{post_id}%2F%3Futm_source%3Dig_web_copy_link&js_render=true&premium_proxy=true&autoparse=true"
     response = get_post_data(format_link)
     print("response gotted!")
+    print(response)
     data = response.json()
     data_return = {}
     print("parsing the links")
