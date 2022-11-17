@@ -40,8 +40,10 @@ cd backend
 ```
 python3 manage.py runserver 
 ```
-
-Youtube API
+### if all the above statements works perfectly :relaxed: . open " frontend/pandadownloader.html " to use the beautiful frontend :heart_eyes:
+# Youtube
+ ![Youtube downloader](https://github.com/vishnudas-bluefox/panda_website/blob/master/screenshots/youtube.gif)
+## Youtube API
 -------------
 ### to fetch the details
 ```
@@ -75,8 +77,10 @@ the response data +
  
   requests.get(downloadpoint,json=data)
 
-
-Instagram API
+# Instagram 
+![Instagram downloader](https://github.com/vishnudas-bluefox/panda_website/blob/master/screenshots/instagram.gif)
+ 
+## Instagram API
 -------------
 ### for download the the posts & reels
 ```
@@ -86,7 +90,10 @@ http://localhost:8000/instagram/post_download/
 ```
 http://localhost:8000/instagram/profile_pic/
 ```
-Facebook API
+# Facebook
+![Facebook downloader](https://github.com/vishnudas-bluefox/panda_website/blob/master/screenshots/facebook.gif)
+ 
+## Facebook API
 -------------
 ### download the post files
 ```
@@ -95,7 +102,10 @@ http://localhost:8000/facebook/post/
 
 users can download the images directly from the facebook :)
 
-Twitter API
+# Twitter
+![Twitter panda downloader](https://github.com/vishnudas-bluefox/panda_website/blob/master/screenshots/twitter.gif)
+ 
+## Twitter API
 -------------
 ### download tweet medi files 
 ```
