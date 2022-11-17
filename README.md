@@ -41,7 +41,7 @@ cd backend
 ```
 python3 manage.py runserver 
 ```
-### if all the above statements works perfectly :relaxed: . open " frontend/pandadownloader.html " to use the beautiful frontend :heart_eyes:
+if all the above statements works perfectly :relaxed: . open " frontend/pandadownloader.html " to use the beautiful frontend :heart_eyes:
 # Youtube
  ![Youtube downloader](https://github.com/vishnudas-bluefox/panda_website/blob/master/screenshots/youtube.gif)
 ## Youtube API
