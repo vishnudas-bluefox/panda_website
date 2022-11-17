@@ -1,0 +1,168 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #021116;
+}
+.container {
+  background: #021116;
+  height: 100%;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+p{
+  color: white;
+}
+#logo{
+  display: flex;
+  justify-content: center;
+  padding-top:10px;
+}
+.navbar{
+  padding-top:30px;
+  display: flex;
+  justify-content: center;
+}
+.nav{
+  display: flex;
+  justify-content: center;
+  width:70%;
+}
+.button{ 
+  border: none;
+}
+.active{
+  border:2px solid white;
+}
+.youtube{
+  background:#C21010;
+  width:25%;
+  height:50px;
+  border-radius:15px 0 0 15px;
+}
+.facebook{
+  background:#E1306C;
+  width:25%;
+  height:50px;
+}
+.instagram{
+  background:#001253;
+  width:25%;
+  height:50px;
+}
+.twitter{
+  background:#1DA1F2;
+  width:25%;
+  height:50px;
+  border-radius:0 15px 15px 0;
+}
+.search{
+  padding-top:30px;
+  display: flex;
+  justify-content: center;
+}
+input {
+  color: white;
+  height: 30px;
+  width: 50%;
+  padding: 6px 10px;
+  background: #021116;
+  border-radius: 15px;
+  border: 2px solid white;
+  font-size: 15px;
+}
+::placeholder {
+  color: rgba(255, 255, 255, 0.826);
+}
+.searchicon{
+  background:transparent;
+  padding-left: 10px;
+}
+
+
+.footer {
+  background-image:url(Images/Ellipse.svg);
+  background-repeat: no-repeat;
+  position:fixed;
+  bottom:0px;
+  height:175px;
+  background-size:100%;
+  width:100%;
+  max-width: 1080px;
+}
+#poweredby{
+  padding-top:50px ;
+  padding-left:5%;
+  width:30%;
+  min-width: 250px;
+  max-width: 400px;
+}
+.downloadarea{
+  padding-top:20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+.quality{
+  width: 60vw;
+  max-width: 400px;
+  height: 50px;
+  background: rgba(85, 95, 99, 0.29);
+  border-radius: 20px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.build{
+  display:inline;
+  background:rgba(0, 255, 179, 0.92);
+  width:20vw;
+  max-width:150px;
+  height:50px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: clamp(16px, 4vw, 22px);
+}
+.download{
+  display:none;
+  background:rgba(71, 200, 196, 0.92);
+  width:20vw;
+  max-width:150px;
+  height:50px;
+  border-radius: 20px;
+}
+.Choose {
+  font-family:sans-serif;
+  font-size: clamp(16px, 4vw, 22px);
+  color:white;
+  text-align:right;
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+.downloads{
+  display: flex;
+}
+.thumbnail{
+  width:90%;
+  max-width:400px;
+  border-radius: 20px;
+}
+
+.name{
+  color:white;
+  text-align:center;
+}
+#mySelect{
+  padding:5px;
+  font-size: 20px;  
+  border: 0;
+  border-radius:5px;
+}
+#downloads{
+  padding-bottom:200px
+}

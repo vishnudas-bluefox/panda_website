@@ -27,6 +27,17 @@ def fetch_post(request,*args,**kwargs):
     data = response.json()
     data_return = {}
     print("parsing the links")
+    print(data)
+    #for testing the api
+    #with open("sample_instagram.json", "w") as outfile:
+        #json.dump(data, outfile)
+    #with open("sample_instagram.json", "w") as outfile:
+        #outfile.write(data)
+    #with open("sample_instagram.json", "r") as f:
+     #   data = json.load(f)
+
+
+    print(data)
 
     #creating link from json response
     try:

@@ -10,7 +10,7 @@ from rest_framework.decorators import api_view
 # Create your views here.
 
 load_dotenv()
-RapidAPI_key = os.getenv('rapidapi_key1')
+RapidAPI_key = os.getenv('rapidapi_key')
 
 @api_view(['GET'])
 def fetch(request,*args,**kwargs):

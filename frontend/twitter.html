@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pandadownloader.css">
+</head>
+<body>
+    <div class="container">
+        <div id="logo">
+            <img src="Images/PandaDownloaderLogo.svg" alt="PandaDownloaderLogo" width="300px">
+        </div>
+        <div class="navbar">
+             <div class="nav">
+                <button class="youtube button">
+
+                <a href=pandadownloader.html>
+                    <img src="Images/YoutubeIcon.svg" alt="YoutubeIcon" width="40px">
+                </a>
+                </button>
+                <button class="instagram button">
+                <a href=instagram.html>
+                    <img src="Images/InstagramIcon.svg" alt="InstagramIcon" width="40px">
+                </a>
+                </button>
+                <button class="facebook button">
+                    <a href="facebook.html">
+                        <img src="Images/FacebookIcon.svg" alt="FacebookIcon" width="40px">
+                    </a>
+                </button>
+                <button class="twitter active button">
+                    <a href="twitter.html">
+                        <img src="Images/TwitterIcon.svg" alt="TwitterIcon" width="40px">
+                    </a>
+                </button>
+            </div>
+       </div>
+        <div class="search">
+            <input type="text" placeholder="Enter the Url Here to Find" id="urlholder" name="search">
+            <button class="button searchicon" type="submit" onclick="test()">Test</button>
+            <button class="button searchicon" type="submit" onclick="test()"><img src="Images/SearchIcon.svg" alt="" width="40px"></button>
+        </div>
+        <div id="downloads">
+
+        </div>
+        <div id="download">
+
+        </div>
+
+        <div class="footer">
+            <img id="poweredby" src="Images/PoweredByBluefox.svg" alt="InstagramIcon">
+        </div>
+    </div>
+    <script>
+     function teste() {
+         console.log("Hello")
+     }
+    </script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+    <script >
+     var file_location = ""
+     function test() {
+         var url = "http://localhost:8000/twitter/fetch/";
+         var params = "url="+document.getElementById("urlholder").value;
+         var http = new XMLHttpRequest();
+         let output= "";
+         http.open("GET", url+"?"+params, true);
+         http.onreadystatechange = function()
+         {
+             if(http.readyState == 4 && http.status == 200) {
+                 data=JSON.parse(http.response);
+                 console.log(data)
+                 output += `
+                <div class="downloadarea">
+                    <h2 class="name">${data.tweet_name}</h2>
+                    <div class="downloads">
+                        <div class="quality">
+                            <div class=Choose>Choose Quality :</div>
+
+                                <select id="mySelect">`
+                                    for(i in data.body.videos){
+                                        dimension_data = data.body.videos[i].dimension;
+
+                                        output+=
+                                            `
+                                        <option value="${dimension_data}">${dimension_data}</option>
+                                        `
+                                        }
+                                    output +=`
+                                </select>
+
+                            </div>`
+                 for(i in data.body.videos){
+                     output+=`
+                        <input type="hidden" id="${data.body.videos[i].dimension}" value="${data.body.videos[i].url}">
+                     `
+                 }
+                 output+=`
+
+                        <button class="build button" id="buildbutton" onclick="build()">
+                        BUILD
+                        </button>
+                        <div id="selectdownload">
+                        </button>
+                        </div>
+                    </div>
+                </div>
+                 `;
+                 console.log(data);
+
+             file_title = data.title
+             }
+             document.getElementById("downloads").innerHTML = output;
+         }
+         http.send(null);
+     }
+     function build() {
+         let selected_resolution = document.getElementById("mySelect").value;
+         let selected_location = document.getElementById(selected_resolution).value;
+         console.log("Values retrived");
+         output=""
+         output +=`
+            <a href="${selected_location}" download>
+          <button class="download button" id="downloadbutton" onclick="download()">
+                        <img src="Images/Download.svg" alt="DownloadIcon" width="40px">
+                        </button>
+                </a>
+         `
+         document.getElementById("selectdownload").innerHTML = output
+         document.getElementById("buildbutton").style.display = "none";
+         document.getElementById("downloadbutton").style.display ="inline";
+
+     }
+     function download() {
+
+     };
+     function build2(){
+         console.log("intialized");
+         var selected_resolution = document.getElementById("mySelect").value;
+         var video_url = document.getElementById("videourl").value
+         params="url="+video_url+"&resolution="+selected_resolution
+         endpoint = "http://localhost:8000/youtube/download/"
+         var http = new XMLHttpRequest();
+         http.open("GET",endpoint+"?"+params,true);
+         console.log("request sended");
+         output=""
+         http.onreadystatechange = function()
+         {
+             console.log("status: "+http.status);
+             data2 = JSON.parse(http.response);
+             console.log(data2);
+
+             file_location=data2["location"];
+             if(http.readyState ==4 && http.statue ==200) {
+                 data = JSON.parse(http.response);
+                 console.log(data);
+             }
+         }
+         http.send(null)
+         document.getElementById("buildbutton").style.display = "none";
+         document.getElementById("downloadbutton").style.display ="inline"
+     }
+
+    </script>
+</body>
+</html>

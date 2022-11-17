@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pandadownloader.css">
+</head>
+<body>
+    <div class="container">
+        <div id="logo">
+            <img src="Images/PandaDownloaderLogo.svg" alt="PandaDownloaderLogo" width="300px">
+        </div>
+        <div class="navbar">
+            <div class="nav">
+                <button class="youtube button">
+                <a href=pandadownloader.html>
+                    <img src="Images/YoutubeIcon.svg" alt="YoutubeIcon" width="40px">
+                </a>
+                </button>
+
+                <button class="instagram active button">
+                <a href=instagram.html>
+                    <img src="Images/InstagramIcon.svg" alt="InstagramIcon" width="40px">
+                </a>
+                </button>
+                <button class="facebook button">
+                <a href=facebook.html>
+                    <img src="Images/FacebookIcon.svg" alt="FacebookIcon" width="40px">
+                </a>
+                </button>
+                <button class="twitter button">
+                <a href=twitter.html>
+                    <img src="Images/TwitterIcon.svg" alt="TwitterIcon" width="40px">
+                </a>
+                </button>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Enter the Url Here to Find" id="urlholder" name="search">
+            <button class="button searchicon" type="submit" onclick="test()"><img src="Images/SearchIcon.svg" alt="" width="40px"></button>
+        </div>
+        <img src="">
+        <div id="downloads">
+
+        </div>
+        <div id="download">
+        </div>
+
+        <div class="footer">
+            <img id="poweredby" src="Images/PoweredByBluefox.svg" alt="InstagramIcon">
+        </div>
+    </div>
+    <script>
+     var file_location = ""
+     var file_title = ""
+     function test() {
+         var url = "http://localhost:8000/instagram/post_download/";
+         var params = "url="+document.getElementById("urlholder").value;
+         var http = new XMLHttpRequest();
+         let output= "";
+         http.open("GET", url+"?"+params, true);
+         http.onreadystatechange = function()
+         {
+             if(http.readyState == 4 && http.status == 200) {
+                 data=JSON.parse(http.response);
+                 console.log(data);
+                 output += `
+                <div class="downloadarea">
+                    <img class="thumbnail" src="${data.video_tumbnail} alt="Cant show the image">
+                    <div class="downloads">
+                 `
+                 if(data.video_link == null) {
+                     output += `<button class="build button" id="buildbutton" onclick="">
+                        <a href="${data.image_link}" download>
+                        <img src="Images/Download.svg" alt="DownloadIcon" width="40px">
+                        </a>
+                        </button>
+                        `
+                 }else {
+                        output += `<button class="build button" id="buildbutton" onclick="">
+                        <a href="${data.video_link}" download>
+                        <img src="Images/Download.svg" alt="DownloadIcon" width="40px">
+                        </a>
+                        </button>
+                        `
+                 }
+                        output+=`<button class="download button" id="">
+                        <img src="Images/Download.svg" alt="DownloadIcon" width="40px">
+                        </button>
+
+                    </div>
+                </div>
+                 `;
+                 console.log(data);
+             }
+             document.getElementById("downloads").innerHTML = output;
+         }
+         http.send(null);
+
+     }
+     function download() {
+         console.log("File location retrived");
+         console.log("Location: "+file_location,"Title: ",file_title);
+         downloadFile(file_location,file_title);
+     };
+
+
+
+     function build(){
+         console.log("intialized");
+         var selected_resolution = document.getElementById("mySelect").value;
+         var video_url = document.getElementById("videourl").value
+         params="url="+video_url+"&resolution="+selected_resolution
+         endpoint = "http://localhost:8000/youtube/download/"
+         var http = new XMLHttpRequest();
+         http.open("GET",endpoint+"?"+params,true);
+         console.log("request sended");
+         output=""
+         http.onreadystatechange = function()
+         {
+             console.log("status: "+http.status);
+             data2 = JSON.parse(http.response);
+             console.log(data2);
+
+             file_location=data2["location"];
+             if(http.readyState ==4 && http.statue ==200) {
+                 data = JSON.parse(http.response);
+                 console.log(data);
+             }
+         }
+         http.send(null)
+         document.getElementById("buildbutton").style.display = "none";
+         document.getElementById("downloadbutton").style.display ="inline"
+     }
+
+
+    </script>
+</body>
+</html>
