@@ -1,5 +1,5 @@
-!["panda_logo](https://github.com/vishnudas-bluefox/panda_website/blob/master/screenshots/panda_downloader.png#gh-light-mode-only)
-!["panda_logo](https://github.com/vishnudas-bluefox/panda_website/blob/master/screenshots/Logo%20(2)_dark.png#gh-dark-mode-only)
+!["panda_logo](https://github.com/vishnudas-bluefox/panda_website/blob/master/screenshots/panda_downloader.png#gh-dark-mode-only)
+!["panda_logo](https://github.com/vishnudas-bluefox/panda_website/blob/master/screenshots/Logo%20(2)_dark.png#gh-light-mode-only)
 <img  align="right" src="https://media2.giphy.com/media/UKJIhTIpOeiNZp2EA6/giphy.gif?cid=ecf05e476lkbtons9c17hgj9n4q0nrw9nt1qio2m9tsbdecn&rid=giphy.gif&ct=s" width=200px>
 ________________________________________________________________________________________________________________________________________
 
